@@ -140,7 +140,7 @@
                                     <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" style="width: 224px;" aria-label="Name: activate to sort column ascending">Name</th>
                                     <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" style="width: 337px;" aria-label="Position: activate to sort column ascending">Email</th>
                                     <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" style="width: 174px;" aria-label="Office: activate to sort column ascending">Role</th>
-                                    <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" style="width: 101px;" aria-label="Age: activate to sort column ascending">Active</th>
+                                    <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" style="width: 101px;" aria-label="Age: activate to sort column ascending">Status</th>
                                     <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" style="width: 179px;" aria-label="Start date: activate to sort column ascending">Created</th>
                                     <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" style="width: 179px;" aria-label="End  date: activate to sort column ascending">Updated</th>
                                 </tr>
