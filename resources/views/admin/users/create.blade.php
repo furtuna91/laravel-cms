@@ -51,28 +51,28 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="role_id" class="col-sm-3 col-form-label">Role</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="role_id" name="role_id" placeholder="Role">
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label for="role_id" class="col-sm-3 col-form-label">Role </label>
                             <div class="col-sm-9">
                                 <select class="form-control select2" id="role_id" name="role_id">
                                     @foreach ($roles as $role)
-                                        <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                    <option value="{{ $role->id }}">{{ $role->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="status" class="col-sm-3 col-form-label">Status </label>
+                            <label for="is_active" class="col-sm-3 col-form-label">Status </label>
                             <div class="col-sm-9">
-                                <select class="form-control select2" id="status" name="status">
+                                <select class="form-control select2" id="is_active" name="is_active">
                                     <option value="0">Not Active</option>
                                     <option value="1">Active</option>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="password" class="col-sm-3 col-form-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                             </div>
                         </div>
                         {{-- <div class="form-group row">
