@@ -36,7 +36,7 @@
             <div class="card">
                 <div class="card-header"><h3>Create an User Form</h3></div>
                 <div class="card-body">
-                    <form class="forms-sample"  method="POST" action="{{ action('AdminUsersController@store') }}">
+                    <form class="forms-sample"  method="POST" action="{{ action('AdminUsersController@store') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group row">
                             <label for="name" class="col-sm-3 col-form-label">Name</label>
@@ -48,6 +48,12 @@
                             <label for="email" class="col-sm-3 col-form-label">Email</label>
                             <div class="col-sm-9">
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="exampleFormControlFile1" class="col-sm-3 col-form-label">Example file input</label>
+                            <div class="col-sm-9">
+                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
                             </div>
                         </div>
                         <div class="form-group row">
