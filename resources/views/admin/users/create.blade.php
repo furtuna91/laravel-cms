@@ -50,12 +50,12 @@
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="exampleFormControlFile1" class="col-sm-3 col-form-label">Example file input</label>
+                        {{-- <div class="form-group row">
+                            <label for="file" class="col-sm-3 col-form-label">Example file input</label>
                             <div class="col-sm-9">
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                <input type="file" class="form-control-file" name="file" id="file">
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="form-group row">
                             <label for="role_id" class="col-sm-3 col-form-label">Role </label>
                             <div class="col-sm-9">
@@ -79,6 +79,12 @@
                             <label for="password" class="col-sm-3 col-form-label">Password</label>
                             <div class="col-sm-9">
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-9 ml-2">
+                                <input type="file" class="custom-file-input" name="file">
+                                <label class="custom-file-label" for="file">Choose file...</label>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Create User</button>
