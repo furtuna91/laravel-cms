@@ -16,15 +16,9 @@
                 <nav class="breadcrumb-container" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="../../index.html"><i class="ik ik-home"></i></a>
+                            <a href="{{ route('dashboard') }}"><i class="ik ik-home"></i>Dashboard</a>
                         </li>
-                        <li class="breadcrumb-item">
-                            <a href="#">UI</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a href="#">Basic</a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">Alerts</li>
+                        <li class="breadcrumb-item active" aria-current="page">All Users</li>
                     </ol>
                 </nav>
             </div>
@@ -35,7 +29,7 @@
             <div class="col col-sm-3">
                 <div class="card-options d-inline-block">
                     <a href="#"><i class="ik ik-inbox"></i></a>
-                    <a href="#"><i class="ik ik-plus"></i></a>
+                    <a href="{{ route('admin.users.create') }}"><i class="ik ik-plus"></i></a>
                     <a href="#"><i class="ik ik-rotate-cw"></i></a>
                     <div class="dropdown d-inline-block">
                         <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ik ik-more-horizontal"></i></a>
@@ -156,7 +150,8 @@
                                                 </label>
                                             </td>
                                             <td>{{ $user->id }}</td>
-                                            <td><img src="img/users/1.jpg" class="table-user-thumb" alt=""></td>
+                                            <td><img src="{{ $user->photo ? $user->photo->path : '' }}" class="table-user-thumb" alt=""></td>
+                                            {{-- <td>{{ $user->photo ? $user->photo->path : '' }}</td> --}}
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->role->name }}</td>

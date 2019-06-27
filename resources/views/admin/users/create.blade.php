@@ -16,15 +16,12 @@
                 <nav class="breadcrumb-container" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="../../index.html"><i class="ik ik-home"></i></a>
+                            <a href="{{ route('dashboard') }}"><i class="ik ik-home"></i> Dashboard</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="#">UI</a>
+                            <a href="{{ route('admin.users') }}">Users</a>
                         </li>
-                        <li class="breadcrumb-item">
-                            <a href="#">Basic</a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">Alerts</li>
+                        <li class="breadcrumb-item active" aria-current="page">Create</li>
                     </ol>
                 </nav>
             </div>
@@ -83,8 +80,8 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-9 ml-2">
-                                <input type="file" class="custom-file-input" name="file">
-                                <label class="custom-file-label" for="file">Choose file...</label>
+                                <input type="file" class="custom-file-input" name="photo_id">
+                                <label class="custom-file-label" for="photo_id">Choose file...</label>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Create User</button>
