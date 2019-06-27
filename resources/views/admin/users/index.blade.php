@@ -150,7 +150,8 @@
                                                 </label>
                                             </td>
                                             <td>{{ $user->id }}</td>
-                                            <td><img src="img/users/1.jpg" class="table-user-thumb" alt=""></td>
+                                            <td><img src="{{ $user->photo ? $user->photo->path : '' }}" class="table-user-thumb" alt=""></td>
+                                            {{-- <td>{{ $user->photo ? $user->photo->path : '' }}</td> --}}
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->role->name }}</td>

@@ -9,7 +9,9 @@ class Photo extends Model
     //
     protected $fillable = ['path'];
 
-    public function photo() {
-        return $this->belongsTo('App\Photo');
+    protected $uploads = '../images/';
+
+    public function getPathAttribute($photo) {
+        return $this->uploads . $photo;
     }
 }
