@@ -10,6 +10,6 @@ class Photo extends Model
     protected $fillable = ['path'];
 
     public function photo() {
-        return $this->belongsTo('App\Photo')
+        return $this->belongsTo('App\Photo');
     }
 }
