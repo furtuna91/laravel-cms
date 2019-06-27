@@ -16,15 +16,12 @@
                 <nav class="breadcrumb-container" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="../../index.html"><i class="ik ik-home"></i></a>
+                            <a href="{{ route('dashboard') }}"><i class="ik ik-home"></i> Dashboard</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="#">UI</a>
+                            <a href="{{ route('admin.users') }}">Users</a>
                         </li>
-                        <li class="breadcrumb-item">
-                            <a href="#">Basic</a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">Alerts</li>
+                        <li class="breadcrumb-item active" aria-current="page">Create</li>
                     </ol>
                 </nav>
             </div>
