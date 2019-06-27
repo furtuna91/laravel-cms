@@ -83,8 +83,8 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-9 ml-2">
-                                <input type="file" class="custom-file-input" name="file">
-                                <label class="custom-file-label" for="file">Choose file...</label>
+                                <input type="file" class="custom-file-input" name="photo_id">
+                                <label class="custom-file-label" for="photo_id">Choose file...</label>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Create User</button>

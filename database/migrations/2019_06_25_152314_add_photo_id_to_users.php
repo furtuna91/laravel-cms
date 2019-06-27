@@ -15,7 +15,7 @@ class AddPhotoIdToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->string('photo_id')->after('email');
+            $table->string('photo_id')->default('0')->after('email');
         });
     }
 
