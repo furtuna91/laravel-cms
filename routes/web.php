@@ -21,7 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin', function() {
     return view('admin.index');
-});
+})->name('dashboard');
 
 
 Route::resource('admin/users', 'AdminUsersController');
+Route::get('/admin/users', 'AdminUsersController@index')->name('admin.users');
+Route::get('/admin/users/create', 'AdminUsersController@create')->name('admin.users.create');
