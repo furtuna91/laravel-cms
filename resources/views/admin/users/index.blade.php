@@ -110,14 +110,15 @@
                                             <span class="custom-control-label">&nbsp;</span>
                                         </label>
                                     </th>
-                                    <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" style="width: 101px;" aria-label="Age: activate to sort column ascending">Id</th>
+                                    <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1"  aria-label="Age: activate to sort column ascending">Id</th>
                                     <th class="nosort sorting_disabled" rowspan="1" colspan="1" style="width: 115px;" aria-label="Avatar">Avatar</th>
-                                    <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" style="width: 224px;" aria-label="Name: activate to sort column ascending">Name</th>
-                                    <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" style="width: 337px;" aria-label="Position: activate to sort column ascending">Email</th>
-                                    <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" style="width: 174px;" aria-label="Office: activate to sort column ascending">Role</th>
-                                    <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" style="width: 101px;" aria-label="Age: activate to sort column ascending">Status</th>
-                                    <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" style="width: 179px;" aria-label="Start date: activate to sort column ascending">Created</th>
-                                    <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" style="width: 179px;" aria-label="End  date: activate to sort column ascending">Updated</th>
+                                    <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending">Name</th>
+                                    <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending">Email</th>
+                                    <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending">Role</th>
+                                    <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending">Status</th>
+                                    <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending">Created</th>
+                                    <th class="sorting" tabindex="0" aria-controls="advanced_table" rowspan="1" colspan="1" aria-label="End  date: activate to sort column ascending">Updated</th>
+                                    <th class="nosort">&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -131,7 +132,7 @@
                                                 </label>
                                             </td>
                                             <td>{{ $user->id }}</td>
-                                            <td><img src="{{ $user->photo ? $user->photo->path : '' }}" class="table-user-thumb" alt=""></td>
+                                            <td><img src="{{ $user->photo ? url( $user->photo->path ) : 'https://fakeimg.pl/640x360' }}" class="table-user-thumb" alt=""></td>
                                             {{-- <td>{{ $user->photo ? $user->photo->path : '' }}</td> --}}
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
@@ -141,6 +142,13 @@
                                             </td>
                                             <td>{{ $user->created_at->diffForHumans() }}</td>
                                             <td>{{ $user->updated_at->diffForHumans() }}</td>
+                                            <td>
+                                                <div class="table-actions">
+                                                    <a href="#"><i class="ik ik-eye"></i></a>
+                                                    <a href="{{ route('users.edit',$user->id) }}"><i class="ik ik-edit-2"></i></a>
+                                                    <a href="#"><i class="ik ik-trash-2"></i></a>
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 @endif
