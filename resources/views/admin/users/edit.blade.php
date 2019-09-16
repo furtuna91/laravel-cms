@@ -66,17 +66,17 @@
                 <div class="card">
                     <ul class="nav nav-pills custom-pills" id="pills-tab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="pills-timeline-tab" data-toggle="pill" href="#current-month" role="tab" aria-controls="pills-timeline" aria-selected="true">Timeline</a>
+                            <a class="nav-link id="pills-timeline-tab" data-toggle="pill" href="#current-month" role="tab" aria-controls="pills-timeline" aria-selected="false">Timeline</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#last-month" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-setting" aria-selected="false">Settings</a>
+                            <a class="nav-link active"" id="pills-setting-tab" data-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-setting" aria-selected="true">Settings</a>
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="current-month" role="tabpanel" aria-labelledby="pills-timeline-tab">
+                        <div class="tab-pane fade" id="current-month" role="tabpanel" aria-labelledby="pills-timeline-tab">
                             <div class="card-body">
                                 <div class="profiletimeline mt-0">
                                     <div class="sl-item">
@@ -187,10 +187,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="previous-month" role="tabpanel" aria-labelledby="pills-setting-tab">
+                        <div class="tab-pane fade show active" id="previous-month" role="tabpanel" aria-labelledby="pills-setting-tab">
                             <div class="card-body">
                                     <form class="forms-sample"  method="POST" action="{{ route('users.update', $user->id) }}" enctype="multipart/form-data">
-                                            {{ method_field('PATCH') }}
+                                            {{ method_field('PUT') }}
                                             {{ csrf_field() }}
                                             <div class="form-group row">
                                                 <label for="name" class="col-sm-3 col-form-label">Name</label>
@@ -223,16 +223,19 @@
                                                     </select>
                                                 </div>
                                             </div>
+                                            {{-- {{ dd($roles )}} --}}
                                             <div class="form-group row">
                                                 <label for="is_active" class="col-sm-3 col-form-label">Status </label>
                                                 <div class="col-sm-9">
                                                     <select class="form-control select2" id="is_active" name="is_active">
-                                                        <option selected='selected'>{{ $user->is_active == 1 ? 'Active' : 'Not Active' }}</option>
+                                                        <option value="{{ $user->is_active }}" selected='selected'>{{ $user->is_active == 1 ? 'Active' : 'Not Active' }}</option>
                                                         <option value="0">Not Active</option>
                                                         <option value="1">Active</option>
                                                     </select>
                                                 </div>
                                             </div>
+                                            {{-- {{dd($user->roles)}} --}}
+                                            {{-- {{ dd($user) }} --}}
                                             <div class="form-group row">
                                                 <label for="password" class="col-sm-3 col-form-label">Password</label>
                                                 <div class="col-sm-9">
@@ -246,9 +249,13 @@
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-primary mr-2">Update Profile</button>
-                                            <button class="btn btn-light">Cancel</button>
                                         </form>
                                         @include('partials.errors')
+                                        <form class="forms-sample pt-3"  method="POST" action="{{ route('users.destroy', $user->id) }}">
+                                            {{ method_field('DELETE') }}
+                                            {{ csrf_field() }}
+                                            <button type="submit" class="btn btn-warning mr-2">Delete Profile</button>
+                                        </form>
                             </div>
                         </div>
                     </div>

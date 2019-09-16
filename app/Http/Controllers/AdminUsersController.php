@@ -7,6 +7,7 @@ use App\Role;
 use App\Photo;
 use Illuminate\Http\Request;
 use App\Http\Requests\UsersRequest;
+use App\Http\Requests\UsersEditRequest;
 
 class AdminUsersController extends Controller
 {
@@ -43,7 +44,16 @@ class AdminUsersController extends Controller
      */
     public function store(UsersRequest $request)
     {
-        $input = $request->all();
+        if ( trim($request->password == '') ) 
+        {
+            # code...
+            $input = $request->except('password');
+        } else
+        {
+            $input = $request->all();
+            $input['password'] = bcrypt($request->password);
+        }
+
         if ($path = $request->file('photo_id')) {
             # code...
             $name = time() . $path->getClientOriginalName();
@@ -57,8 +67,9 @@ class AdminUsersController extends Controller
 
             // return 'photo exists';
         }
-        $input['password'] = bcrypt($request->password);
         User::create($input);
+        
+        return redirect('admin/users')->with('status', 'Profile created!');
         //
         // return $request->all();
         // User::create($request->all());
@@ -98,10 +109,44 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UsersEditRequest $request, $id)
     {
         //
-        // $user = User::findOrFail($id);
+        $user = User::findOrFail($id);
+        // dd($input);
+
+        if ( trim($request->password == '') ) 
+        {
+            # code...
+            $input = $request->except('password');
+        } else
+        {
+            $input = $request->all();
+            $input['password'] = bcrypt($request->password);
+        }
+
+        if ($path = $request->file('photo_id')) {
+            # code...
+            $name = time() . $path->getClientOriginalName();
+
+            $path->move('images', $name);
+
+            $photo = Photo::create(['path'=>$name]);
+
+            $input['photo_id'] = $photo->id;
+
+
+            // return 'photo exists';
+        }
+        // if ( is_null($input['password']) ) {
+        //     # code...
+        //     $input['password'] = $user->password;
+        // }
+        // if ( is_null($request->) )
+        // return $request->all();
+        // dd($input);
+        $user->update($input);
+        return redirect()->route('admin.users');
     }
 
     /**
@@ -113,5 +158,8 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         //
+        $user = User::FindOrFail($id)->delete();
+        // redirect()->route('admin.users');
+        return redirect('admin/users')->with('status', 'Profile deleted!');
     }
 }
